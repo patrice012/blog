@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+<form class="post_form form" action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="form__field__container">
+    <label for="id_title">{{form.title.label}}{{form.title}} {{form.title.errors}}</label>
+    
+
+    <label id="content_input" for="id_content"
+      >{{form.content.label}}: {{form.content}} {{form.content.errors}}
+    </label>
+
+    <label for="tag">Create targ
+        <input type="text" name="tags" id="tag">
+        <span>Add Tag separe by comma</span>
+    </label>
+
+    {{form.content.label}}
+    <div
+      class=" contenteditable {% if title == 'update' %} update_post {% endif %}"
+      name="create_post"
+      id="post_content"
+      aria-placeholder="post content"
+      contenteditable="true"
+    ></div>{{form.content.errors}}
+
+    <label class="input_image" for="id_image"
+      >Selecte Image {{form.image}} {{form.image.errors}}
+    </label>
+
+    <div>
+      <img class="imgPreview" src="" alt="">
+    </div>
+
+    <label class="checkbox" for="id_is_publish"
+      >{{form.status.label}}: {{form.status}} {{form.status.errors}}
+    </label>
+
+    <label class="checkbox" for="id_author"
+      >{{form.author.label}}: {{form.author}} {{form.author.errors}}
+    </label>
+  </div>
+
+  <input type="submit" value="{{title}} product" />
+</form>
+
+{% endblock content %}

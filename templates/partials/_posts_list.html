@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="post_list">
+  {% for post in posts %}
+  <div>
+    {% if post.get_image_url %}
+    <a href="{{post.get_absolute_url}}">
+        <img src="{{post.get_image_url}}" alt="iphone-11" />
+    </a>
+    {% endif %}
+
+    <a href="{{post.get_absolute_url}}"><h4 class="title">{{post.title}}</h4></a>
+
+      <p>
+        {{post.content|striptags|truncatewords:18}}
+      </p>
+  </div>
+  {% endfor %}
+</div>

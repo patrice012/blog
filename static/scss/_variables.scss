@@ -1,0 +1,17 @@
+
+
+@font-face {
+    font-family: 'poppins';
+    src: 'static/fonts/Poppins-Light.ttf';
+    font-family: 'roboto';
+    src: 'static/fonts/Roboto-Medium.ttf';
+
+}
+
+
+$light-yellow: hsl(60, 100%, 50%);
+$black-color: hsl(0, 2%, 10%);
+$light-gray: rgba(183, 183, 183, 0.84);
+$section-margin: clamp(7vw, 2rem + 3vw, 10vw);
+
+$color-scheme: light dark;

@@ -1,0 +1,29 @@
+{% load blog_tags %}
+    <nav>
+      <span id="logo">
+        <a href="/">BEAUTY</a>
+      </span>
+
+      <ul class="nav__link">
+        <li><a class="link" href="{% url 'blog:post_list' %}">BLOG</a></li>
+        <li><a class="link" href="{% url 'blog:about' %}">ABOUT US</a></li>
+      </ul>
+
+      <div id="search__container">
+        <form id="search__form" action="{% url 'blog:search_view' %}">
+           <input id="search" type="text" name="query" placeholder="Start typing. Press Enter key to search">
+        </form>
+      </div>
+        
+
+
+      <span class="nav__svg">
+        <i id="search__toggle" class="fa fa-search"></i>
+        <i class="fa-solid fa-user"></i>
+        <!-- <i class="fa-solid fa-search"></i> -->
+        <!-- <i class="fa-solid fa-lock"></i> -->
+      </span>
+      <div class="box">
+        <div class="lign"></div>
+      </div>
+    </nav>

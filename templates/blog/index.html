@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+
+
+{% block content %}
+    
+
+    <header class="index_header">
+      <div class="header__content">
+        <h1 id="header__title">Iphone 12 PRO MAX</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus nulla,
+          natus tenetur perspiciatis quae illo expedita architecto, inventore
+          magnam rerum officia, reiciendis nostrum sapiente repellendus facilis
+          explicabo sunt assumenda modi? Voluptatibus hic iste sint aspernatur
+          facilis earum.
+        </p>
+        <a href="#">Buy Now <span class="price">$39.88</span></a>
+      </div>
+    </header>
+
+    <div class="information">
+      <p>350,000+ subscribe worldwide since 2008</p>
+      <div class="rating">
+        <span class="bolder__title">4.6</span>
+        <span>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+        </span>
+        <span>3.158 Ratings</span>
+      </div>
+
+      <div class="average">
+        <span class="bolder__title">{% posts_number %}</span>
+        <span>Posts published</span>
+      </div>
+    </div>
+
+    <section class="branding">
+      <h2 class="section__title">Our Benefits</h2>
+      <div class="brand">
+        <div>
+          <!-- <img src="img/svg/im-twitter.svg" alt="icon" /> -->
+          <i class="fa fa-check-double icons"></i>
+          <h4>Best Quality</h4>
+          <p>
+            natus tenetur perspiciatis quae illo expedita architecto.natus
+            tenetur perspiciatis quae illo expedita architecto
+          </p>
+        </div>
+        <div>
+          <!-- <img src="img/svg/im-twitter.svg" alt="icon" /> -->
+          <i class="fa fa-box-open icons"></i>
+          <h4>Free Shipping</h4>
+          <p>
+            natus tenetur perspiciatis quae illo expedita architecto.natus
+            tenetur perspiciatis quae illo expedita architecto
+          </p>
+        </div>
+        <div>
+          <!-- <img src="img/svg/im-twitter.svg" alt="icon" /> -->
+          <i class="fa fa-dollar icons"></i>
+          <h4>Warranty</h4>
+          <p>
+            natus tenetur perspiciatis quae illo expedita architecto.natus
+            tenetur perspiciatis quae illo expedita architecto
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="store" class="branding">
+      <h2 class="section__title">Latest Post</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus nulla,
+        natus tenetur perspiciatis quae illo expedita architecto, inventore
+        magnam rerum officia, reiciendis nostrum sapiente repellendus facilis
+        explicabo sunt assumenda modi? Voluptatibus hic iste sint. Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Minus nulla, natus tenetur
+        perspiciatis quae illo expedita architecto, inventore magnam rerum
+        officia.
+      </p>
+      <div class="container">
+            {% include 'partials/_posts_list.html' with posts=posts %}
+      </div>
+
+
+    </section>
+
+    <section class="about_us image_bg">
+      <div>
+        <h2 class="section__title">About Us</h2>
+        <p>
+          natus tenetur perspiciatis quae illo expedita architecto.natus tenetur
+          perspiciatis quae illo expedita architecto
+        </p>
+        <a href="#">Read More</a>
+      </div>
+    </section>
+
+
+    {% include 'partials/_subscribe.html' %}
+
+    <section class="testimonials">
+      <div>
+        <h2 class="section__title">Testimonials</h2>
+        <div class="slide_btn">
+          <i class="fa fa-chevron-circle-left"></i>
+          <i class="fa fa-chevron-circle-right"></i>
+        </div>
+      </div>
+
+      <div class="card__container">
+        <div class="card">
+          <div class="start">
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
+            nulla, natus tenetur perspiciatis quae illo expedita architecto,
+            inventore magnam rerum officia,
+          </p>
+          <div class="profil">
+            <img src="{% static 'img/lea.jpg' %}" alt="" />
+            <div>
+              <h5>Sarah Jock</h5>
+              <p>E-vendor, enter-ship</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="start">
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
+            nulla, natus tenetur perspiciatis quae illo expedita architecto,
+            inventore magnam rerum officia,
+          </p>
+          <div class="profil">
+            <img src="{% static 'img/marcus.jpg' %}" alt="" />
+            <div>
+              <h5>Sarah Jock</h5>
+              <p>E-vendor, enter-ship</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="start">
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
+            nulla, natus tenetur perspiciatis quae illo expedita architecto,
+            inventore magnam rerum officia,
+          </p>
+          <div class="profil">
+            <img src="{% static 'img/anna.jpg' %}" alt="" />
+            <div>
+              <h5>Sarah Jock</h5>
+              <p>E-vendor, enter-ship</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}
+    

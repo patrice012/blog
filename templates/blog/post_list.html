@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='tags_post'>
+    
+    {% if post_tag %}
+        <h1 class="">Filter post by <i class="fa fa-tag"></i>Tag: {{tag}}</h1>
+        {% include 'partials/_posts_list.html' with posts=tag_posts %}
+    {% endif %}
+
+    
+    {% if post_list %}
+        {% include 'partials/_posts_list.html' with posts=posts %}
+    {% endif %}
+        
+        
+</div>
+    
+{% endblock content %}
+    

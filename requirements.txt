@@ -1,0 +1,8 @@
+
+
+django==4.0.7
+django-environ==0.9.0
+
+postgresql
+postgresql-contrib
+psycopg2-binary

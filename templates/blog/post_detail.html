@@ -1,0 +1,178 @@
+{% extends 'base.html' %} {% load blog_tags %} {% block content %} 
+
+<main class="post_detail">
+  <div class="side_navbar nav_left">
+    <h3>Latest Post <i class="fa fa-clock-four"></i></h3>
+    {% show_latest_posts %}
+  </div>
+
+  <div class="main__container post">
+    <img src="{{post.get_image_url}}" alt="{{post.title}}" />
+    <h2 class="post__title">{{post.title}}</h2>
+    <div class="post__detail">
+      {% for author in post.author.all %}
+      <p><i class="fa fa-user"></i> User: {{author.username}}</p>
+      {% endfor %}
+      <p>
+        <i class="fa fa-calendar"></i> Posted: {{post.release|date:"l d F Y"}}
+        at {{post.release|date:"g: i a"}}
+      </p>
+    </div>
+    <p class="post__content">{{post.content|urlize}}</p>
+  </div>
+
+  <div class="side_navbar">
+
+    <div class="nav_right">
+        <p>
+        <i class="fa fa-adjust"></i>
+        <a href="{% url 'blog:update_post' post.slug post.id %}"
+            >Update {{post.title}}
+        </a>
+        </p>
+
+        <p>
+        <i class="fa-regular fa-heart"></i>
+        Like
+        </p>
+
+        {% if perms.blog.delete_post %}
+        <a href="{% url 'blog:delete_post' post.slug post.id %}"
+        >Delete {{post.title}} <i class="fa fa-remove"></i
+        ></a>
+        {% endif %}
+
+        <div>
+        {% if tags %}
+        <i class="fa fa-tag"></i>
+        Tags: {% for tag in tags %}
+        <span id="tags"
+            ><a href="{% url 'blog:post_by_tag' tag %}">{{tag}},</a></span
+        >
+        {% endfor %} {% else %}
+        <span>No tags assoiciated to this post.</span>
+        {% endif %}
+        </div>
+        <div class="scrol_links">
+        <span id="scroll_comment"
+            >Comment this post <i class="fa fa-comment"></i
+        ></span>
+        <span id="scroll_share">Share this post <i class="fa fa-share"></i></span>
+        <!-- <a href="#share">Share this post</a> -->
+        </div>
+    </div>
+  </div>
+</main>
+
+<section class="similar_posts">
+  {% if similar_posts %}
+  <h2>Similar posts:</h2>
+  <div>
+    {% for post in similar_posts %}
+    <a href="{{ post.get_absolute_url }}"><p>{{ post.title|upper}}</p></a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <h2>There are no similar posts yet.</h2>
+  {% endif %}
+</section>
+
+{% include 'partials/_post_comments.html' with post=post %}
+
+<section class="form_section">
+  <h3>Comment <i class="fa fa-comment"></i></h3>
+  <form class="submit_action" id="comment_form" action="" method="POST">
+    {% csrf_token %}
+    <div class="form__field__container">
+      <label for="id_username"
+        >{{comment_form.username.label}}{{comment_form.username}}
+        {{comment_form.username.errors}}</label
+      >
+
+      <label for="id_email"
+        >{{comment_form.email.label}}{{comment_form.email}}
+        {{comment_form.email.errors}}</label
+      >
+
+      <label for="id_active"
+        >{{comment_form.active.label}}{{comment_form.active}}
+        {{comment_form.active.errors}}</label
+      >
+
+      <label for="id_body"
+        >{{comment_form.body.label}}{{comment_form.body}}</label
+      >
+      <span id="comment_checker">This field is required</span>
+      <div
+        class="contenteditable"
+        name="comment_post"
+        id="comment"
+        aria-placeholder="post comment"
+        contenteditable="true"
+        required="true"
+      ></div>
+      {{comment_form.body.errors}}
+
+      <input
+        class="btn"
+        type="submit"
+        name="comment"
+        value="Comment"
+        id="submit_comment"
+      />
+    </div>
+  </form>
+</section>
+
+<section class="form_section">
+  <h3>Share <i class="fa fa-share-from-square"></i></h3>
+  <form class="submit_action" id="share_form" action="" method="POST">
+    {% csrf_token %}
+    <div class="form__field__container">
+      <label for="id_name"
+        >{{share_form.name.label}}{{share_form.name}}
+        {{share_form.name.errors}}</label
+      >
+
+      <label for="id_email"
+        >{{share_form.email.label}} {{share_form.email}}
+        {{share_form.email.errors}}
+        <span>Your personal email address</span>
+      </label>
+
+      <label for="id_to"
+        >{{share_form.to.label}} {{share_form.to}} {{share_form.to.errors}}
+        <span>Destinator email address</span>
+      </label>
+
+      <label for="id_comment"
+        >{{share_form.comment.label}}{{share_form.comment}}</label
+      >
+
+      <div
+        class="contenteditable"
+        name="share_post"
+        id="share_id"
+        aria-placeholder="share post"
+        contenteditable="true"
+      ></div>
+      {{share_form.comment.errors}}
+    </div>
+
+    <input
+      class="btn"
+      type="submit"
+      name="share"
+      value="Share"
+      id="share_post"
+    />
+  </form>
+
+    {% if send %}
+        <div id="send_post_state">
+            <span>{{post}} was send succesfully</span>
+        </div>
+    {% endif %}
+</section>
+
+{% endblock content %}

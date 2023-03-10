@@ -1,0 +1,149 @@
+@media screen and (min-width:900px) {
+    .post_detail {
+        display: grid;
+        grid-template-columns: 1fr 55% 1fr;
+    }
+}
+
+.post_detail {
+    margin-inline: 2%;
+}
+
+.main__container {
+    padding-block: 2%;
+}
+
+.post > * {
+    margin-block: .6em;
+}
+
+.post > img {
+    touch-action: double-tap-zoom;
+}
+
+.post__detail > * {
+    margin-block: .9em;
+} 
+
+.post__title {
+    font-size: clamp(1rem, 0.8em + 8vw, 1.8rem);
+    color: red;
+    font-weight: 450;
+    
+}
+
+.post__content {
+    font-size: clamp(.9rem, .9em + .3vw, 1.3rem);
+    line-height: 1.4;
+}
+
+
+.side_navbar {
+    line-height: 1.6;
+    padding: 2vw;
+}
+
+.nav_right > * {
+    margin-block: 1em;
+}
+
+#tags {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.scrol_links > * {
+    color:inherit;
+    cursor: pointer;
+    display: block;
+    font-size: 1.1em;
+}
+
+// similar_posts
+
+.similar_posts h2 {
+    font-size: 1.5em;
+    margin-block: 1em;
+    text-align: center;
+    position: relative;
+}
+
+.similar_posts  a * {
+    background-color: gray;
+    color: white;
+    border-radius: 8px;
+    padding: .45em 1em;
+    margin: min(1rem, 2vw);
+    display: block;
+}
+
+@media  screen and (min-width:880px) {
+    .similar_posts {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        justify-self: center;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .similar_posts  a * {
+        display: inline-block;
+    }
+}
+
+
+// share and comment
+
+#post_comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-inline: auto;
+}
+
+#post_comment * {
+    margin-block: .4em;
+}
+
+
+.form_section {
+    width: 80%;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-block-end: 3.5em !important;
+}
+
+.form_section > h3 {
+    text-align: center;
+    font-size:clamp(.9rem, 1.2em + .3vw, 1.4rem); ;
+}
+
+.form_section div,
+.form_section form {
+    width: 100%;
+}
+
+
+#id_body,
+#id_comment {
+    display: none;
+}
+
+#comment_checker {
+    display: none;
+}
+
+#comment_checker.active {
+    display: inline-block;
+}
+
+.contenteditable {
+    border: 2px solid gray;
+    width: 100%;
+    min-height: 20vh;
+    max-width: 100%;
+    padding: .5em;
+}

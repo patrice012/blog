@@ -1,0 +1,11 @@
+<section class="section new_letter">
+    <h2 id="valid_action">Success process <i class="fa fa-check-circle"></i></h2>
+    <div class="subscribe__container">
+        <h2>Let keep in touch <i class="fa fa-mail-forward"></i></h2>
+        <form id="subscribe" action="{% url 'blog:subscription' %}" method="POST">
+        {% csrf_token %}
+        <input id="sub_email" type="email" name="subscribe" autocomplete="true" placeholder="Your Email address...">
+        <span>Make sure this email address is valid.</span>
+        </form>
+    </div>
+</section>

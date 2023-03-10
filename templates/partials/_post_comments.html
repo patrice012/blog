@@ -1,0 +1,19 @@
+
+
+<section id="post_comment">
+    {% with post.number_of_comments as total_comments %}
+        <h2><span id="num_comments">{{total_comments}}</span> comment{{ total_comments|pluralize }}</h2>
+    {% endwith %}
+
+    
+    {% with post.all_comments as post_comments %}
+        {% for comment in post_comments %}
+            <div class="post_comment">
+                <span><i class="fa fa-user"></i>{{comment.username}}</span>
+                <span><i class="fa fa-mail-bulk"></i>{{comment.email}}</span>
+                <p><i class="fa fa-clock"></i>{{comment.created}}</p>
+                <p><i class="fa fa-comment"></i>{{comment.body}}</p>
+            </div>
+        {% endfor %}
+    {% endwith %}
+</section>

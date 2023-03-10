@@ -1,0 +1,4 @@
+create a PostgresSQL db and configure the settings file
+sharing post by email
+retrieving post by similarity
+add tag to post models

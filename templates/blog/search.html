@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+{% if query %}
+<section class='search'>
+    <h1>Posts containing "{{ query }}"</h1>
+    <h3>
+    {% with results.count as total_results %}
+    Found {{ total_results }} result{{ total_results|pluralize }}
+    {% endwith %}
+    </h3>
+    <div class='search__container'>
+    {% include 'partials/_posts_list.html' with posts=results %}
+    </div>
+
+
+    
+    {% if not results.count %}
+        <h2 class="empty_result">Opps... Nothings was Found. Try again!</h2>
+    {% endif %}
+
+</section>
+{% endif %}
+
+{% endblock %}
